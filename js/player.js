@@ -23,11 +23,11 @@ class Player extends Component {
 			switch (event.keyCode) {
 				case 37:
 				case 65:
-					if (this.x >= 0) this.x--;
+					if (this.x >= 0) this.x-=50;
 					break;
 				case 39:
 				case 83:
-					if (this.x <= canvas.width - this.width) this.x++;
+					if (this.x <= canvas.width - this.width) this.x+=50;
 					break;
 				default:
 					console.log("Invalid Key");

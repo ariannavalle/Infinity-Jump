@@ -6,15 +6,15 @@ class Game {
 	}
 
 	init = () => {
-		let canvas = this.canvas;
-		let ctx = this.ctx;
+		this.animationLoop();
+		this.player.move();
+	};
 
+	animationLoop = () => {
 		this.clear();
 		this.drawPlayer();
 		this.player.jump();
-		this.player.move()
-
-		requestAnimationFrame(this.init);
+		requestAnimationFrame(this.animationLoop);
 	};
 	
 	clear = () => {
