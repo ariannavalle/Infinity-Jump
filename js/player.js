@@ -10,7 +10,7 @@ class Player extends Component {
 	}
 
 	fall() {
-		this.y =+ this.yVelocity;
+		this.y += this.yVelocity;
 		this.yVelocity += 0.1
 	}
 }
