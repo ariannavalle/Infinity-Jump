@@ -17,7 +17,6 @@ class Game {
 		this.clear();
 		this.drawPlayer();
 		this.player.move();
-		this.player.fall();
 		this.drawPlatforms();
 		requestAnimationFrame(this.update);
 	};
@@ -31,7 +30,9 @@ class Game {
 	}
 
 	drawPlatforms = () => {
-		this.platforms.forEach(platform => { platform.drawComponent('images/pink-platform.png')});
+		this.platforms.forEach(platform => {
+			platform.drawComponent('images/pink-platform.png');
+			platform.checkCollision();});
 	}
 
 	handleKeys = () => {
