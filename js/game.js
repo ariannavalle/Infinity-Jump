@@ -20,7 +20,7 @@ class Game {
 			//getting a number between 2 values: Math.random() * (max - min) + min;
 			let platform = new Platform(this, Math.floor(Math.random() * (this.platformMaxX - this.platformMinX)) + this.platformMinX, this.platformY,100,20);
 			this.platforms.push(platform);
-			this.platformY -= 100; //increase the next platform height by 100
+			this.platformY -= 80; //increase the next platform height by 80
 		}
 	};
 
