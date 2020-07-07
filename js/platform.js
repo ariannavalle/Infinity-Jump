@@ -8,8 +8,8 @@ class Platform extends Component {
 		game.player.yVelocity += 0.1; //this pulls the character down
 
 		if (
-			game.player.x < this.x + this.width &&
-			game.player.x + game.player.width > this.x &&
+			game.player.x+30 < this.x + this.width &&
+			game.player.x-30 + game.player.width > this.x &&
 			game.player.y < this.y + this.height &&
 			game.player.y + game.player.height > this.y
 		) {
