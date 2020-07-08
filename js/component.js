@@ -16,6 +16,7 @@ class Component {
 	}
 	
 	makeSound(soundSrc) {
+		this.sound.src = soundSrc;
 		this.sound.play();
 	}
 	  
