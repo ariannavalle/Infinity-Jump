@@ -6,6 +6,7 @@ class Component {
 		this.width = width;
 		this.height = height;
 		this.img = new Image();
+		this.sound = new Audio();
 	}
 
 	drawComponent(imgSrc) {
@@ -13,4 +14,9 @@ class Component {
 		this.img.src = imgSrc;
 		ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
 	}
+	
+	makeSound(soundSrc) {
+		this.sound.play();
+	}
+	  
 }

@@ -21,6 +21,7 @@ class Platform extends Component {
 			this.playerOnTop
 		) {
 			this.game.player.yVelocity = -1200; //determines how high the player will bounce up 
+			this.game.player.makeSound('../sfx/jump.wav');
 		}
 	};
 }
