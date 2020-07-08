@@ -8,6 +8,7 @@ class Game {
 		this.platformMaxX = this.canvas.width-this.firstPlatform.width; //the max x value that the platform can be positioned (the width of the canvas minus the width of the platform)
 		this.platformMinX = this.firstPlatform.width; //the min x value that the platform can be positioned (the beginning of the canvas plus the width of the platform)
 		this.platformY = canvas.height;
+		this.score = 0;
 	}
 
 	init = () => {
@@ -29,6 +30,7 @@ class Game {
 		this.drawPlayer();
 		this.player.move();
 		this.drawPlatforms();
+		this.drawScore();
 		requestAnimationFrame(this.update);
 	};
 	
@@ -44,6 +46,11 @@ class Game {
 		this.platforms.forEach(platform => {
 			platform.drawComponent('images/pink-platform.png');
 			platform.checkCollision();});
+	}
+
+	drawScore = () => {
+		this.ctx.font = "20px Courier New";
+		this.ctx.fillText(`Score: ${Math.round(this.score)}`, 10, 20)
 	}
 
 	handleKeys = () => {

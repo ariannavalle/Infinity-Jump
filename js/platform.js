@@ -5,21 +5,22 @@ class Platform extends Component {
 	}
 
 	checkCollision = () => {
-		this.y -= game.player.yVelocity * 0.01; //gravity movement, pulls the player down 
-		game.player.yVelocity += 0.1; //increases the downward movement gradually
+		this.y -= this.game.player.yVelocity * 0.01; //gravity movement, pulls the player down 
+		this.game.player.yVelocity += 0.1; //increases the downward movement gradually
+		this.game.score += 0.001
 
-		if (game.player.y < this.y-game.player.height) {
+		if (this.game.player.y < this.y-this.game.player.height) {
             this.playerOnTop = true;
 		}
 		
 		if (
-			game.player.x+30 < this.x + this.width &&
-			game.player.x-30 + game.player.width > this.x &&
-			game.player.y < this.y + this.height &&
-			game.player.y + game.player.height > this.y &&
+			this.game.player.x+30 < this.x + this.width &&
+			this.game.player.x-30 + this.game.player.width > this.x &&
+			this.game.player.y < this.y + this.height &&
+			this.game.player.y + this.game.player.height > this.y &&
 			this.playerOnTop
 		) {
-			game.player.yVelocity = -1200; //determines how high the player will bounce up 
+			this.game.player.yVelocity = -1200; //determines how high the player will bounce up 
 		}
 	};
 }
