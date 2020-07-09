@@ -29,6 +29,7 @@ class Game {
 		this.drawPlayer();
 		this.player.move();
 		this.drawPlatforms();
+		this.platforms.forEach(p => p.increaseY())
 		this.drawScore();
 		requestAnimationFrame(this.update);
 	};

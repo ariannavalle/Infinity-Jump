@@ -4,12 +4,15 @@ class Platform extends Component {
 		this.playerOnTop = false; //the bottom of player needs to be on top of the platform to bounce off of it
 	}
 
-	checkCollision = () => {
-		this.y -= this.game.player.yVelocity * 0.01; //gravity movement, pulls the player down 
-		this.game.player.yVelocity += 0.1; //increases the downward movement gradually
-		this.game.score += 0.001
+	increaseY = () => {
+		this.y -= this.game.player.yVelocity * 0.01; 
+		this.game.player.yVelocity += 0.1; 
 
-		if (this.game.player.y < this.y-this.game.player.height) {
+		this.game.score += 0.001
+	}
+
+	checkCollision = () => {
+		if (this.game.player.y < this.y - this.game.player.height) {
             this.playerOnTop = true;
 		}
 		
