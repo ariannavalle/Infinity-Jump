@@ -38,7 +38,7 @@ class Platform extends Component {
 				this.game.player.y + this.game.player.height > this.y &&
 				this.playerOnTop && this.explodes
 			) {
-				this.game.player.makeSound('../sfx/explodingplatform.mp3');
+				this.game.player.makeSound('../sfx/exploding-platform.mp3');
 			}
 		}
 	};

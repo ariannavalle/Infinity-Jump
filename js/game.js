@@ -53,7 +53,7 @@ class Game {
 	drawPlatforms = () => {
 		this.platforms.forEach(platform => {
 			if (platform.explosionPossibility === 1) {
-				platform.drawComponent('./images/broken-platform.png');
+				platform.drawComponent('./images/exploding-platform.png');
 				platform.explodes = true;
 				platform.checkCollision()
 			} else {
