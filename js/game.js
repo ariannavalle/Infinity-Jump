@@ -32,6 +32,7 @@ class Game {
 		this.platforms.forEach(p => p.increaseY())
 		this.removePlatforms();
 		this.drawScore();
+		this.gameOver();
 		requestAnimationFrame(this.update);
 	};
 	
@@ -58,6 +59,14 @@ class Game {
 	drawScore = () => {
 		this.ctx.font = "20px Courier New";
 		this.ctx.fillText(`Score: ${Math.round(this.score)}`, 10, 20)
+	}
+
+	gameOver = () => {
+		if (this.player.yVelocity > this.canvas.height + 1000) {
+			this.score = 0;
+			this.ctx.font = "100px Courier New";
+			this.ctx.fillText(`GAME OVER`, 130, 450)
+		}
 	}
 
 	handleKeys = () => {
