@@ -6,7 +6,6 @@ class Game {
 		this.firstPlatform = new Platform(this, this.canvas.width/2-50, this.canvas.height+80, 110,27); //first platform will be static and positioned underneath the player's starting position to ensure the player doesn't fall down as soon as the game starts
 		this.platforms = []; //the rest of the platforms will be pushed into this array with dynamically set x and y values
 		this.platformMaxX = this.canvas.width-this.firstPlatform.width; //the max x value that the platform can be positioned (the width of the canvas minus the width of the platform)
-		this.platformY = canvas.height;
 		this.score = 0;
 	}
 
@@ -40,13 +39,8 @@ class Game {
 	createPlatforms = () => {
 		if (this.platforms.length < 80) {
 			//instantiate each platform and push them into the array of platforms
- 			let platform = new Platform(this, Math.floor(Math.random() * this.platformMaxX), this.platformY,110,27);
+			 let platform = new Platform(this, Math.floor(Math.random() * this.platformMaxX), this.platforms[this.platforms.length - 1].y -80,110,27);
 			this.platforms.push(platform);
-			if(this.y < 0  && Math.abs(platform.y) + this.platforms[this.platforms.length-2].y > 100) {
-				console.log(platform, this.platformY, this.platforms.length, Math.abs(platform.y) + this.platforms[this.platforms.length-2].y > 100)
-			}
-			// console.log(platform.y - this.platforms[this.platforms.length-2].y)
-			this.platformY -= 80; //increase the next platform height by 80
 		}
 	}
 
@@ -63,12 +57,8 @@ class Game {
 	}
 
 	removePlatforms = () => {
-		// this.platforms.forEach(platform => {
-		// 	if (platform.y > this.canvas.height + 100) this.platforms.splice(0,1)
-		// }) 
-
 		this.platforms.forEach((platform,i) => {
-			if (platform.y > this.player.y + 1200) this.platforms.splice(i,1)
+			if (platform.y > this.player.y + 500) this.platforms.splice(i,1)
 		})
 	}
 
