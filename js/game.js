@@ -74,11 +74,13 @@ class Game {
             switch (event.keyCode) {
                 case 37: //left arrow
                 case 65: //'a'
-                    this.player.xVelocity = -5
+					this.player.xVelocity = -5
+					if (this.player.x<0) this.player.x=this.canvas.width-this.player.width
                     break;
                 case 39: //right arrow
                 case 68: //'d'
-                    this.player.xVelocity = 5;
+					this.player.xVelocity = 5;
+					if (this.player.x>this.canvas.width-this.player.width) this.player.x=0
                     break;
                 default:
                     console.log("Invalid Key");
