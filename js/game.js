@@ -30,6 +30,7 @@ class Game {
 		this.player.move();
 		this.drawPlatforms();
 		this.platforms.forEach(p => p.increaseY())
+		this.removePlatforms();
 		this.drawScore();
 		requestAnimationFrame(this.update);
 	};
@@ -46,6 +47,12 @@ class Game {
 		this.platforms.forEach(platform => {
 			platform.drawComponent('images/pink-platform.png');
 			platform.checkCollision();});
+	}
+
+	removePlatforms = () => {
+		this.platforms.forEach(platform => {
+			if (platform.y > this.canvas.height + 100) this.platforms.splice(0,1)
+		}) 
 	}
 
 	drawScore = () => {
