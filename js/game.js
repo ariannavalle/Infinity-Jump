@@ -3,7 +3,7 @@ class Game {
 		this.canvas = document.querySelector("#canvas");
 		this.ctx = this.canvas.getContext("2d");
 		this.player = new Player(this, this.canvas.width/2-50, this.canvas.height-300, 100, 100, 0, 3);
-		this.firstPlatform = new Platform(this, this.canvas.width/2-50, this.canvas.height-30, 100,20); //first platform will be static and positioned underneath the player's starting position to ensure the player doesn't fall down as soon as the game starts
+		this.firstPlatform = new Platform(this, this.canvas.width/2-50, this.canvas.height+80, 110,27); //first platform will be static and positioned underneath the player's starting position to ensure the player doesn't fall down as soon as the game starts
 		this.platforms = []; //the rest of the platforms will be pushed into this array with dynamically set x and y values
 		this.platformMaxX = this.canvas.width-this.firstPlatform.width; //the max x value that the platform can be positioned (the width of the canvas minus the width of the platform)
 		this.platformY = canvas.height;
@@ -14,14 +14,7 @@ class Game {
 		this.handleKeys();
 		this.update();
 		this.platforms.push(this.firstPlatform); 
-		//todo: declare winner if player gets to the top
-		//instantiate each platform and push them into the array of platforms
-		for (let i = 0; i < 300; i++) { 
-			//getting a number between 2 values: Math.random() * (max - min) + min;
-			let platform = new Platform(this, Math.floor(Math.random() * this.platformMaxX), this.platformY,100,20);
-			this.platforms.push(platform);
-			this.platformY -= 80; //increase the next platform height by 80
-		}
+		setInterval(this.createPlatforms, 10);
 	};
 
 	update = () => {
@@ -44,16 +37,39 @@ class Game {
 		this.player.drawComponent('./images/space-right.png');
 	}
 
+	createPlatforms = () => {
+		if (this.platforms.length < 80) {
+			//instantiate each platform and push them into the array of platforms
+ 			let platform = new Platform(this, Math.floor(Math.random() * this.platformMaxX), this.platformY,110,27);
+			this.platforms.push(platform);
+			if(this.y < 0  && Math.abs(platform.y) + this.platforms[this.platforms.length-2].y > 100) {
+				console.log(platform, this.platformY, this.platforms.length, Math.abs(platform.y) + this.platforms[this.platforms.length-2].y > 100)
+			}
+			// console.log(platform.y - this.platforms[this.platforms.length-2].y)
+			this.platformY -= 80; //increase the next platform height by 80
+		}
+	}
+
 	drawPlatforms = () => {
 		this.platforms.forEach(platform => {
-			platform.drawComponent('images/pink-platform.png');
-			platform.checkCollision();});
+			if (platform.explosionPossibility === 1) {
+				platform.drawComponent('./images/broken-platform.png');
+				platform.explodes = true;
+				platform.checkCollision()
+			} else {
+			platform.drawComponent('./images/yellow-platform.png');
+			platform.checkCollision()}
+		});
 	}
 
 	removePlatforms = () => {
-		this.platforms.forEach(platform => {
-			if (platform.y > this.canvas.height + 100) this.platforms.splice(0,1)
-		}) 
+		// this.platforms.forEach(platform => {
+		// 	if (platform.y > this.canvas.height + 100) this.platforms.splice(0,1)
+		// }) 
+
+		this.platforms.forEach((platform,i) => {
+			if (platform.y > this.player.y + 1200) this.platforms.splice(i,1)
+		})
 	}
 
 	drawScore = () => {
