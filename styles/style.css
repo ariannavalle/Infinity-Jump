@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    /* background: url('../images/temp.jpg'); */
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.img {
+    position: absolute;
+    z-index: 2;
+}
+
+#container {
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 50px #333; 
+    background-color: rgba(255,255,255,0.5)
+}
+
+#canvas {
+    position: relative;
+    z-index: 20;
+}
