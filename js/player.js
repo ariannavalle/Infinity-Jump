@@ -8,6 +8,5 @@ class Player extends Component {
 	move() {
 		this.x += this.xVelocity;
 		this.game.player.yVelocity += 28; 
-		this.game.score += 0.1
 	}
 }

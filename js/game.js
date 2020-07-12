@@ -7,6 +7,7 @@ class Game {
 		this.platforms = []; //the rest of the platforms will be pushed into this array with dynamically set x and y values
 		this.platformMaxX = this.canvas.width-this.firstPlatform.width; //the max x value that the platform can be positioned (the width of the canvas minus the width of the platform)
 		this.score = 0;
+		this.highScore = localStorage.getItem('highScore')
 		this.currentFrame = 0;
 		this.explosionFrames = explosionAnimation; 
 	}
@@ -70,20 +71,30 @@ class Game {
 
 	removePlatforms = () => {
 		this.platforms.forEach((platform,i) => {
-			if (platform.y > this.player.y + 500) this.platforms.splice(i,1)
+			if (platform.y > this.player.y + 500) {
+				this.platforms.splice(i,1)
+				this.score++
+				if (this.score > this.highScore) {
+					this.highScore = this.score;
+					localStorage.setItem('highScore', this.highScore); }
+			}	
 		})
 	}
 
 	drawScore = () => {
 		this.ctx.font = "20px Courier New";
-		this.ctx.fillText(`Score: ${Math.round(this.score)}`, 10, 20)
+		this.ctx.fillText(`Score: ${this.score}`, 10, 20)
+		;
 	}
 
 	gameOver = () => {
 		if (this.player.yVelocity > this.canvas.height + 1000) {
-			this.score = 0;
+			this.clear()
 			this.ctx.font = "100px Courier New";
-			this.ctx.fillText(`GAME OVER`, 130, 450)
+			this.ctx.fillText(`GAME OVER`, 130, 400)
+			this.ctx.font = "30px Courier New";
+			this.ctx.fillText(`Final Score: ${this.score}`, 290, 450)
+			this.ctx.fillText(`Your High Score: ${this.highScore}`, 250, 500)
 		}
 	}
 
