@@ -65,7 +65,14 @@ class Game {
 				platform.drawComponent('./images/exploding-00.png'); //platforms that explode
 				platform.explodes = true;
 				platform.checkCollision()}
-			} else {
+			} 
+			else if (platform.springPossibility === 1) {
+				platform.hasSpring = true;
+				platform.drawComponent('./images/default-platform.png');
+				platform.drawComponent('./images/spring.png', platform.springPosition, platform.y-10, 20, 20 )
+				platform.checkCollision()
+			}
+			else {
 			platform.drawComponent('./images/default-platform.png'); //default platform
 			platform.checkCollision()}
 		});
