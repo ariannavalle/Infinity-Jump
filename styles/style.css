@@ -1,8 +1,14 @@
+@font-face {
+	font-family: 'DoodleJump';
+	src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
+}
+
 body {
     text-align: center;
     background: url('../images/temp.jpg');
     background-size:cover;
     background-repeat: no-repeat;
+    font-family: 'DoodleJump';
 }
 
 .img {

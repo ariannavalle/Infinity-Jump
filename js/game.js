@@ -66,6 +66,14 @@ class Game {
 				platform.explodes = true;
 				platform.checkCollision()}
 			} 
+			else if (platform.disappearPossibility === 1) {
+				if(platform.disappearing) {
+					this.platforms.splice(i,1)
+				} 
+				platform.disappears = true;
+				platform.drawComponent('./images/disappearing-platform.png');
+				platform.checkCollision()
+			}
 			else if (platform.springPossibility === 1) {
 				platform.hasSpring = true;
 				platform.drawComponent('./images/default-platform.png');
@@ -91,17 +99,17 @@ class Game {
 	}
 
 	drawScore = () => {
-		this.ctx.font = "20px Courier New";
-		this.ctx.fillText(`Score: ${this.score}`, 10, 20)
+		this.ctx.font = "30px DoodleJump";
+		this.ctx.fillText(`score: ${this.score}`, 10, 20)
 		;
 	}
 
 	gameOver = () => {
 		if (this.player.yVelocity > this.canvas.height + 1000) {
 			this.clear()
-			this.ctx.font = "100px Courier New";
-			this.ctx.fillText(`GAME OVER`, 130, 400)
-			this.ctx.font = "30px Courier New";
+			this.ctx.font = "100px DoodleJump";
+			this.ctx.fillText(`GAME OVER`, 180, 400)
+			this.ctx.font = "30px DoodleJump";
 			this.ctx.fillText(`Final Score: ${this.score}`, 290, 450)
 			this.ctx.fillText(`Your High Score: ${this.highScore}`, 250, 500)
 		}

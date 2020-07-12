@@ -5,6 +5,9 @@ class Platform extends Component {
 		this.explodes = false;
 		this.exploding = false;
 		this.explosionPossibility = Math.floor(Math.random() * 5);
+		this.disappears = false;
+		this.disappearing = false;
+		this.disappearPossibility = Math.floor(Math.random() * 5);
 		this.hasSpring = false;
 		this.springPossibility = Math.floor(Math.random() * 7);
 		this.springPosition = this.x+Math.floor(Math.random() * 75)
@@ -30,6 +33,10 @@ class Platform extends Component {
 			if (this.explodes){ 
 				this.game.player.makeSound('../sfx/exploding-platform.mp3');
 				this.exploding = true;
+			}
+			if (this.disappears){ 
+				this.game.player.makeSound('../sfx/disappearing-platform.mp3');
+				this.disappearing = true;
 			}
 		}
 		if (this.hasSpring){ 
