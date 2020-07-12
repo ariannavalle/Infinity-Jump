@@ -36,7 +36,9 @@ class Game {
 	};
 
 	drawPlayer = () => {
-		this.player.drawComponent('./images/space-right.png');
+		if (!this.player.direction) this.player.drawComponent('./images/space-right.png')
+		else if (this.player.direction === "left") this.player.drawComponent('./images/space-left.png');
+		else if (this.player.direction === "right") this.player.drawComponent('./images/space-right.png');
 	}
 
 	createPlatforms = () => {
@@ -104,11 +106,13 @@ class Game {
                 case 37: //left arrow
                 case 65: //'a'
 					this.player.xVelocity = -5
+					this.player.direction = 'left';
 					if (this.player.x<0) this.player.x=this.canvas.width-this.player.width
                     break;
                 case 39: //right arrow
                 case 68: //'d'
 					this.player.xVelocity = 5;
+					this.player.direction = 'right';
 					if (this.player.x>this.canvas.width-this.player.width) this.player.x=0
                     break;
                 default:
