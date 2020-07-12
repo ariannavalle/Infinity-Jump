@@ -4,6 +4,7 @@ class Platform extends Component {
 		this.playerOnTop = false; //the bottom of player needs to be on top of the platform to bounce off of it
 		this.hasSpring = false;
 		this.explodes = false;
+		this.exploding = false;
 		this.explosionPossibility = Math.floor(Math.random() * 5);
 		this.moves = false;
 	}
@@ -30,7 +31,7 @@ class Platform extends Component {
 		}
 
 		//platform explodes 
-		if (this.explodes === true) {
+		if (this.explodes) {
 			if (
 				this.game.player.x+30 < this.x + this.width &&
 				this.game.player.x-30 + this.game.player.width > this.x &&
@@ -39,6 +40,7 @@ class Platform extends Component {
 				this.playerOnTop && this.explodes
 			) {
 				this.game.player.makeSound('../sfx/exploding-platform.mp3');
+				this.exploding = true;
 			}
 		}
 	};

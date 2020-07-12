@@ -7,6 +7,8 @@ class Game {
 		this.platforms = []; //the rest of the platforms will be pushed into this array with dynamically set x and y values
 		this.platformMaxX = this.canvas.width-this.firstPlatform.width; //the max x value that the platform can be positioned (the width of the canvas minus the width of the platform)
 		this.score = 0;
+		this.currentFrame = 0;
+		this.explosionFrames = explosionAnimation; 
 	}
 
 	init = () => {
@@ -45,13 +47,23 @@ class Game {
 	}
 
 	drawPlatforms = () => {
-		this.platforms.forEach(platform => {
+		this.platforms.forEach((platform,i)=> {
 			if (platform.explosionPossibility === 1) {
-				platform.drawComponent('./images/exploding-platform.png');
+				if(platform.exploding) {
+					platform.drawComponent(this.explosionFrames[this.currentFrame]) //platform animation while exploding 
+					if (this.currentFrame === this.explosionFrames.length-1) {
+						this.platforms.splice(i,1) //todo: fix flicker
+						this.currentFrame = 0;
+						platform.exploding = false;
+					}
+					this.currentFrame++
+				}
+				else {
+				platform.drawComponent('./images/exploding-00.png'); //platforms that explode
 				platform.explodes = true;
-				platform.checkCollision()
+				platform.checkCollision()}
 			} else {
-			platform.drawComponent('./images/yellow-platform.png');
+			platform.drawComponent('./images/default-platform.png'); //default platform
 			platform.checkCollision()}
 		});
 	}
