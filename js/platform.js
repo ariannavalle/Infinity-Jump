@@ -29,13 +29,13 @@ class Platform extends Component {
 			this.playerOnTop
 		) {
 			this.game.player.yVelocity = -1200; //determines how high the player will bounce up 
-			this.game.player.makeSound('../sfx/jump.wav');
+			this.game.player.makeSound('./sfx/jump.wav');
 			if (this.explodes){ 
-				this.game.player.makeSound('../sfx/exploding-platform.mp3');
+				this.game.player.makeSound('./sfx/exploding-platform.mp3');
 				this.exploding = true;
 			}
 			if (this.disappears){ 
-				this.game.player.makeSound('../sfx/disappearing-platform.mp3');
+				this.game.player.makeSound('./sfx/disappearing-platform.mp3');
 				this.disappearing = true;
 			}
 		}
@@ -45,7 +45,7 @@ class Platform extends Component {
 				this.game.player.y < this.y && 
 				this.game.player.y + this.game.player.height > this.y-20 && 
 				this.playerOnTop) {
-					this.game.player.makeSound('../sfx/spring.mp3');
+					this.game.player.makeSound('./sfx/spring.mp3');
 					this.game.player.yVelocity = -1800;
 				}
 		}
