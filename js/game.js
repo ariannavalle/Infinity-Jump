@@ -21,7 +21,7 @@ class Game {
 
 	update = () => {
 		this.clear();
-		this.drawPlayer();
+		this.drawPlayer(player, playerLeft, playerRight);
 		this.player.move();
 		this.drawPlatforms();
 		this.platforms.forEach(p => p.increaseY())
@@ -35,10 +35,10 @@ class Game {
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	};
 
-	drawPlayer = () => {
-		if (!this.player.direction) this.player.drawComponent('./images/space-right.png')
-		else if (this.player.direction === "left") this.player.drawComponent('./images/space-left.png');
-		else if (this.player.direction === "right") this.player.drawComponent('./images/space-right.png');
+	drawPlayer = (player, playerLeft, playerRight) => {
+		if (!this.player.direction) this.player.drawComponent(player)
+		else if (this.player.direction === "left") this.player.drawComponent(playerLeft);
+		else if (this.player.direction === "right") this.player.drawComponent(playerRight);
 	}
 
 	createPlatforms = () => {
