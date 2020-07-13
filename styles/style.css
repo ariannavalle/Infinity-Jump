@@ -5,9 +5,8 @@
 
 body {
     text-align: center;
-    /* background: url('../images/temp.jpg'); */
+    background: url('../images/orange-planet.jpg');
     background-size:cover;
-    background-repeat: no-repeat;
     font-family: 'DoodleJump';
 }
 
@@ -20,8 +19,8 @@ body {
     z-index: 30;
     position: absolute;
     border-radius: 10px;
-    box-shadow: 0 5px 50px #333; 
-    background-color: rgba(255,255,255,0.9);
+    /* background-color: rgba(192,250,217,0.9); */
+    background: url('../images/classic-bg.png');
     width: 800px;
     height:850px;
 
@@ -41,16 +40,37 @@ body {
     background-color: rgba(255,255,255,0.5)
 }
 
+content{
+    padding: 30px;
+}
+
 #rona {
     padding: 0 30px;
 }
 
-#game-intro > h2 {
+h1{
+    color:#f56328;
+    font-size: 3rem;
+}
+h2 {
     font-size: 2rem;
-    padding: 3rem 3rem 0 3rem;
+    margin: 0;
+    padding: 0;
 }
 
-span {
-    color:#b23f85;
-    
+p {
+    color:#f56328;
+    font-size: 1.3rem;
+    padding: 0 30px;
+}
+
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #f56328;    }
+    49%{    color: #f56328; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #f56328;    }
 }

@@ -3,29 +3,34 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Game</title>
-		<link rel="stylesheet" href="styles/style.css" />
+		<title>Infinity Jump</title>
+		<link rel="shortcut icon" href="./images/favicon.png" />
+		<link rel="stylesheet" href="./styles/style.css" />
 	</head>
 	<body>
 		<div id="game-board">
 			<div id="game-intro">
-				<h2>Use the left and right arrow keys to navigate through the platforms. <span>
-					But be careful! Not all platforms are the same, and you might encounter some scary creatures along the way.</span>
-					<br><br>Look out for these:
-				</h2>
+				<content>
+				<h1>Infinity Jump</h1>
+				<h2>Instructions: Use the left and right arrow keys to navigate through the platforms.<br> </h2>
+				<p>
+					But be careful! Not all platforms are the same, and you might encounter some scary creatures along the way.
+				</p>
+				Look out for these:
 				<h3>
-					<img src="./images/disappearing-platform.png" width="100" height="27" alt=""> These platforms disappear
+					<img src="./images/disappearing-platform.png" width="100" height="27" alt="disappearing platform"> These platforms disappear
 					<br>
-					<img src="./images/exploding-00.png" width="100" height="27" alt=""> These platforms explode
+					<img src="./images/exploding-00.png" width="100" height="27" alt="exploding platform"> These platforms explode
 					<br>
-					<img src="./images/spring.png" width="30" height="30" alt=""> Springs will boost you up
+					<img src="./images/spring.png" width="30" height="30" alt="a spring"> Springs will boost you up
 				</h3>
-				<h2>Choose a player to start<br></h2>
+				<h2 class="blinking">Choose a player to start</h2>
 				<div id="players">
 					<img src="./images/space-right.png" alt="doodler" id="doodler">
 					<img src="./images/rona-00.png" alt="rona" width="100" height="100" id="rona">
 					<img src="./images/nyan.png" alt="nyan" width="100" height="100" id="nyan">
 				</div>
+			</content>
 			</div>
 			<canvas id="canvas" width="800" height="850"></canvas>
 		</div>
