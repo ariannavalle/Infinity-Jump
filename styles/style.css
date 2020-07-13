@@ -65,12 +65,18 @@ p {
 }
 
 .blinking{
+    color:#f56328;
     animation:blinkingText 1.2s infinite;
 }
-@keyframes blinkingText{
-    0%{     color: #f56328;    }
-    49%{    color: #f56328; }
-    60%{    color: transparent; }
-    99%{    color:transparent;  }
-    100%{   color: #f56328;    }
+
+.grow:hover
+{
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
 }
+
+@keyframes blinkingText{
+    50% { opacity: 0;}  
+}
+

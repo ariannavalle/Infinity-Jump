@@ -10,6 +10,8 @@ class Game {
 		this.highScore = localStorage.getItem('highScore')
 		this.currentFrame = 0;
 		this.explosionFrames = explosionAnimation; 
+		this.particles = [];
+		this.hue = 0;
 	}
 
 	init = () => {
@@ -26,6 +28,8 @@ class Game {
 		this.drawPlatforms();
 		this.platforms.forEach(p => p.increaseY())
 		this.removePlatforms();
+		this.drawParticles()
+		this.hue++
 		this.drawScore();
 		this.gameOver();
 		requestAnimationFrame(this.update);
@@ -98,8 +102,30 @@ class Game {
 		})
 	}
 
+	drawParticles = () => {
+		if (currentPlayer === "rona") {
+			this.ctx.fillStyle = `rgba(72, 155, 43, 0.6)`;
+		}
+		if (currentPlayer === "nyan") {
+			this.ctx.fillStyle = `hsla(${this.hue},100%,50%,0.5)`;
+		}
+		if (currentPlayer === "rona" || currentPlayer === "nyan") {
+			this.particles.unshift(new Particle(this))
+			for (let i = 0; i < this.particles.length; i++){
+				this.particles[i].update();
+				this.particles[i].draw();
+			}
+			if(this.particles.length > 100) {
+				for (let i = 0; i < 20; i++) {
+					this.particles.pop(this.particles[i])
+				}
+			}
+		}
+	}
+
 	drawScore = () => {
 		this.ctx.font = "30px DoodleJump";
+		this.ctx.fillStyle = "black";
 		this.ctx.fillText(`score: ${this.score}`, 10, 20)
 		;
 	}
