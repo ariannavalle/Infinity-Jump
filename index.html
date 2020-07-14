@@ -9,34 +9,62 @@
 	</head>
 	<body>
 		<a href="https://www.linkedin.com/in/ariannavalle/" id="linkedin-icon">
-			<img src="./images/linkedin-icon.png" alt="Arianna's LinkedIn" width="30px" height="30px">
+			<img src="./images/linkedin-icon.png" alt="Arianna's LinkedIn" width="30px" height="30px"/>
 		</a>
 		<a href="https://github.com/ariannavalle" id="github-icon">
-			<img src="./images/github-icon.png" alt="Arianna's Github" width="33px" height="34px">
+			<img src="./images/github-icon.png" alt="Arianna's Github" width="33px" height="34px"/>
 		</a>
 		<div id="game-board">
 			<div id="game-intro">
 				<content>
-				<h1>Infinity Jump</h1>
-				<h2>Instructions: Use the left and right arrow keys to navigate through the platforms.<br> </h2>
-				<p>
-					But be careful! Not all platforms are the same, and you might encounter some scary creatures along the way.
-				</p>
-				Look out for these:
-				<h3>
-					<img src="./images/disappearing-platform.png" width="100" height="27" alt="disappearing platform"> These platforms disappear
-					<br>
-					<img src="./images/exploding-00.png" width="100" height="27" alt="exploding platform"> These platforms explode
-					<br>
-					<img src="./images/spring.png" width="30" height="30" alt="a spring"> Springs will boost you up
-				</h3>
-				<h2 class="blinking">Choose a player to start</h2>
-				<div id="players">
-					<img src="./images/space-right.png" alt="doodler" id="doodler" class="grow">
-					<img src="./images/rona-00.png" alt="rona" width="100" height="100" id="rona" class="grow">
-					<img src="./images/nyan.png" alt="nyan" width="100" height="100" id="nyan" class="grow">
-				</div>
-			</content>
+					<h1>Infinity Jump</h1>
+					<h2>
+						Instructions: Use the left and right arrow keys to navigate through
+						the platforms.
+						<br>
+					</h2>
+					<p>
+						But be careful! Not all platforms are the same, and you might
+						encounter some scary creatures along the way.
+					</p>
+					<div id="info">
+						<div>
+							<h3>
+								<div><u>Look out for these</u></div>
+								<br>
+								<div id="platform-info">
+									These platforms disappear
+									<img src="./images/disappearing-platform.png" width="100" height="27" alt="disappearing platform"/>
+									<br>
+									These platforms explode
+									<img src="./images/exploding-00.png" width="100" height="27" alt="exploding platform"/>
+									<br>
+									Springs will boost you up
+									<img src="./images/spring.png" width="30" height="30" alt="a spring"/>
+								</div>
+							</h3>
+						</div>
+
+						<div>
+							<div>
+								<h3><u>Avoid crashing into these monsters</u></h3>
+							</div>
+							<br>
+							<img src="./images/enemy-00.png" width="100" height="80" alt="enemy"/>
+							<img src="./images/enemy-01.png" width="100" height="80" alt="another enemy"/>
+							<br>
+							<img src="./images/enemy-02.png" width="100" height="80" alt="another emeny"/>
+						</div>
+					</div>
+
+					<br><br>
+					<h2 class="blinking">Choose a player to start</h2>
+					<div id="players">
+						<img src="./images/space-right.png" alt="doodler" id="doodler" class="grow"/>
+						<img src="./images/rona-00.png" alt="rona" width="100" height="100" id="rona" class="grow"/>
+						<img src="./images/nyan.png" alt="nyan" width="100" height="100" id="nyan" class="grow"/>
+					</div>
+				</content>
 			</div>
 			<canvas id="canvas" width="800" height="850"></canvas>
 		</div>

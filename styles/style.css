@@ -1,13 +1,49 @@
 @font-face {
-	font-family: 'DoodleJump';
-	src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
+    font-family: 'DoodleJump';
+    src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
+}
+
+@keyframes blinkingText {
+    50% {
+        opacity: 0;
+    }
 }
 
 body {
     text-align: center;
     background: url('../images/orange-planet.jpg');
-    background-size:cover;
+    background-size: cover;
     font-family: 'DoodleJump';
+}
+
+content {
+    padding: 30px;
+}
+
+h1 {
+    color: #f56328;
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: #f56328;
+    font-size: 1.3rem;
+    padding: 0 30px;
+}
+
+u {
+    text-decoration-color: #f56328;
 }
 
 .img {
@@ -15,15 +51,24 @@ body {
     z-index: 2;
 }
 
+.blinking {
+    color: #f56328;
+    animation: blinkingText 1.2s infinite;
+}
+
+.grow:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
 #game-intro {
     z-index: 30;
     position: absolute;
     border-radius: 10px;
-    /* background-color: rgba(192,250,217,0.9); */
     background: url('../images/classic-bg.png');
     width: 800px;
-    height:850px;
-
+    height: 850px;
 }
 
 #game-board {
@@ -36,58 +81,33 @@ body {
     position: relative;
     z-index: 20;
     border-radius: 10px;
-    box-shadow: 0 5px 50px #333; 
-    background-color: rgba(255,255,255,0.5)
+    box-shadow: 0 5px 50px #333;
+    background-color: rgba(255, 255, 255, 0.5)
 }
 
-content{
-    padding: 30px;
+#info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#platform-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #rona {
     padding: 0 30px;
 }
 
-h1{
-    color:#f56328;
-    font-size: 3rem;
-}
-h2 {
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    color:#f56328;
-    font-size: 1.3rem;
-    padding: 0 30px;
-}
-
-.blinking{
-    color:#f56328;
-    animation:blinkingText 1.2s infinite;
-}
-
-.grow:hover
-{
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-}
-
-@keyframes blinkingText{
-    50% { opacity: 0;}  
-}
-
-#linkedin-icon{
-    position:absolute;
-    top:10px;
+#linkedin-icon {
+    position: absolute;
+    top: 10px;
     right: 10px;
- }
+}
 
- #github-icon{
-    position:absolute;
-    top:8px;
+#github-icon {
+    position: absolute;
+    top: 8px;
     right: 42px;
- }
+}
