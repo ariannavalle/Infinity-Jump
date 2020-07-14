@@ -9,9 +9,9 @@ class Game {
 		this.score = 0;
 		this.highScore = localStorage.getItem('highScore')
 		this.currentFrame = 0;
-		this.explosionFrames = explosionAnimation; 
 		this.particles = [];
 		this.hue = 0;
+		this.killedByEnemy = false; 
 	}
 
 	init = () => {
@@ -31,7 +31,8 @@ class Game {
 		this.drawParticles()
 		this.hue++
 		this.drawScore();
-		this.gameOver();
+		if (this.player.yVelocity > this.canvas.height + 1000 || this.killedByEnemy) {
+		this.gameOver();}
 		requestAnimationFrame(this.update);
 	};
 	
@@ -57,8 +58,8 @@ class Game {
 		this.platforms.forEach((platform,i)=> {
 			if (platform.explosionPossibility === 1) {
 				if(platform.exploding) {
-					platform.drawComponent(this.explosionFrames[this.currentFrame]) //platform animation while exploding 
-					if (this.currentFrame === this.explosionFrames.length-1) {
+					platform.drawComponent(explosionAnimation[this.currentFrame]) //platform animation while exploding 
+					if (this.currentFrame === explosionAnimation.length-1) {
 						this.platforms.splice(i,1) //todo: fix flicker
 						this.currentFrame = 0;
 						platform.exploding = false;
@@ -82,6 +83,30 @@ class Game {
 				platform.hasSpring = true;
 				platform.drawComponent('./images/default-platform.png');
 				platform.drawComponent('./images/spring.png', platform.springPosition, platform.y-10, 20, 20 )
+				platform.checkCollision()
+			}
+			else if (platform.enemyPossibility === 1 && this.score > 10 ) {
+				platform.drawComponent('./images/default-platform.png');
+				platform.drawComponent('./images/enemy-00.png', platform.x, platform.y-this.player.height+36, 108, 80)
+				if (platform.x < this.canvas.width && platform.x<this.canvas.width) platform.x++
+				else platform.x = -platform.width
+				platform.hasEnemy = true;
+				platform.checkCollision()
+			}
+			else if (platform.enemyPossibility1 === 1 && this.score > 20) {
+				platform.drawComponent('./images/default-platform.png');
+				platform.drawComponent('./images/enemy-01.png', platform.x, platform.y-this.player.height+36, 108, 80)
+				if (platform.x < this.canvas.width && platform.x<this.canvas.width) platform.x++
+				else platform.x = -platform.width
+				platform.hasEnemy = true;
+				platform.checkCollision()
+			}
+			else if (platform.enemyPossibility2 === 1 && this.score > 30) {
+				platform.drawComponent('./images/default-platform.png');
+				platform.drawComponent('./images/enemy-02.png', platform.x, platform.y-this.player.height+36, 108, 80)
+				if (platform.x < this.canvas.width && platform.x<this.canvas.width) platform.x++
+				else platform.x = -platform.width
+				platform.hasEnemy = true;
 				platform.checkCollision()
 			}
 			else {
@@ -131,14 +156,13 @@ class Game {
 	}
 
 	gameOver = () => {
-		if (this.player.yVelocity > this.canvas.height + 1000) {
 			this.clear()
+			this.player.x = -this.player.width;
 			this.ctx.font = "100px DoodleJump";
 			this.ctx.fillText(`GAME OVER`, 180, 400)
 			this.ctx.font = "30px DoodleJump";
 			this.ctx.fillText(`Final Score: ${this.score}`, 290, 450)
 			this.ctx.fillText(`Your High Score: ${this.highScore}`, 250, 500)
-		}
 	}
 
 	handleKeys = () => {

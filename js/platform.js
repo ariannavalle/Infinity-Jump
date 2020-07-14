@@ -11,6 +11,10 @@ class Platform extends Component {
 		this.hasSpring = false;
 		this.springPossibility = Math.floor(Math.random() * 7);
 		this.springPosition = this.x+Math.floor(Math.random() * 75)
+		this.hasEnemy = false;
+		this.enemyPossibility = Math.floor(Math.random() * 30);
+		this.enemyPossibility1 = Math.floor(Math.random() * 30);
+		this.enemyPossibility2 = Math.floor(Math.random() * 30);
 	}
 
 	increaseY = () => {
@@ -47,6 +51,17 @@ class Platform extends Component {
 				this.playerOnTop) {
 					this.game.player.makeSound('./sfx/spring.mp3');
 					this.game.player.yVelocity = -1800;
+				}
+		}
+		if (this.hasEnemy){ 
+			if (this.game.player.x < this.x + 100 &&
+				this.game.player.x + this.game.player.width > this.x &&
+				this.game.player.y < this.y && 
+				this.game.player.y + this.game.player.height > this.y-100 && 
+				this.playerOnTop) {
+					this.game.drawPlayer(player, playerLeft, playerRight)
+					this.game.player.makeSound('./sfx/enemy-crash.mp3');
+					this.game.killedByEnemy = true;
 				}
 		}
 	};
