@@ -29,8 +29,8 @@ class Game {
 		this.platforms.forEach(p => p.increaseY())
 		this.removePlatforms();
 		this.drawParticles()
-		this.hue++
 		this.drawScore();
+		this.hue++
 		if (this.player.yVelocity > this.canvas.height + 1000 || this.killedByEnemy) {
 		this.gameOver();}
 		requestAnimationFrame(this.update);
@@ -58,9 +58,10 @@ class Game {
 		this.platforms.forEach((platform,i)=> {
 			if (platform.explosionPossibility === 1) {
 				if(platform.exploding) {
+					if (currentPlayer === "rona") {this.player.drawComponent(rona[1])}
 					platform.drawComponent(explosionAnimation[this.currentFrame]) //platform animation while exploding 
 					if (this.currentFrame === explosionAnimation.length-1) {
-						this.platforms.splice(i,1) //todo: fix flicker
+						this.platforms.splice(i,1)
 						this.currentFrame = 0;
 						platform.exploding = false;
 					}
