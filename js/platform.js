@@ -56,7 +56,6 @@ class Platform extends Component {
 		if (this.hasEnemy){ 
 			if (this.game.player.x+30 < this.x + this.width && //player coming from left side
 				this.game.player.x-30 + this.game.player.width > this.x && //player coming from right side
-				// this.game.player.y < this.y+this.game.player.height-36 && //player coming from bottom
 				this.game.player.y < this.y-10 && //player coming from bottom
 				this.game.player.y + this.game.player.height+35 > this.y //player coming from top
 				) {
