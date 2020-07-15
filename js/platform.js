@@ -54,11 +54,12 @@ class Platform extends Component {
 				}
 		}
 		if (this.hasEnemy){ 
-			if (this.game.player.x < this.x + 100 &&
-				this.game.player.x + this.game.player.width > this.x &&
-				this.game.player.y < this.y && 
-				this.game.player.y + this.game.player.height > this.y-100 && 
-				this.playerOnTop) {
+			if (this.game.player.x+30 < this.x + this.width && //player coming from left side
+				this.game.player.x-30 + this.game.player.width > this.x && //player coming from right side
+				// this.game.player.y < this.y+this.game.player.height-36 && //player coming from bottom
+				this.game.player.y < this.y-10 && //player coming from bottom
+				this.game.player.y + this.game.player.height+35 > this.y //player coming from top
+				) {
 					this.game.drawPlayer(player, playerLeft, playerRight)
 					this.game.player.makeSound('./sfx/enemy-crash.mp3');
 					this.game.killedByEnemy = true;
