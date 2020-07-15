@@ -3,7 +3,7 @@
     src: url('//2ttf.com/webfont/9L8ZEUpWnuu/webfont.ttf') format('truetype');
 }
 
-@keyframes blinkingText {
+@keyframes blinkingElement {
     50% {
         opacity: 0;
     }
@@ -13,6 +13,7 @@ body {
     text-align: center;
     background: url('../images/orange-planet.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'DoodleJump';
 }
 
@@ -53,7 +54,7 @@ u {
 
 .blinking {
     color: #f56328;
-    animation: blinkingText 1.2s infinite;
+    animation: blinkingElement 1.2s infinite;
 }
 
 .grow:hover {
@@ -110,4 +111,14 @@ u {
     position: absolute;
     top: 8px;
     right: 42px;
+}
+
+#play-again {
+    position: absolute;
+    top: 470px;
+    right: 200px;
+    animation: blinkingElement 1s;
+    animation-iteration-count: infinite;
+    z-index: 40;
+    opacity: 0.6;
 }

@@ -157,13 +157,14 @@ class Game {
 	}
 
 	gameOver = () => {
-			this.clear()
-			this.player.x = -this.player.width;
-			this.ctx.font = "100px DoodleJump";
-			this.ctx.fillText(`GAME OVER`, 180, 400)
-			this.ctx.font = "30px DoodleJump";
-			this.ctx.fillText(`Final Score: ${this.score}`, 290, 450)
-			this.ctx.fillText(`Your High Score: ${this.highScore}`, 250, 500)
+		this.clear()
+		this.player.x = -this.player.width;
+		this.ctx.font = "100px DoodleJump";
+		this.ctx.fillText(`GAME OVER`, 180, 350)
+		this.ctx.font = "30px DoodleJump";
+		this.ctx.fillText(`Final Score: ${this.score}`, 290, 400)
+		this.ctx.fillText(`Your High Score: ${this.highScore}`, 250, 450)
+		playAgain.style.display="block";
 	}
 
 	handleKeys = () => {

@@ -3,6 +3,8 @@ const gameIntro = document.getElementById("game-intro")
 const doodlerPlayer = document.getElementById("doodler")
 const ronaPlayer = document.getElementById("rona")
 const nyanPlayer = document.getElementById("nyan")
+const playAgain = document.getElementById("play-again")
+playAgain.style.display="none";
 
 doodlerPlayer.addEventListener("click", (event) => {
     gameIntro.style.display = "none";
@@ -38,4 +40,8 @@ nyanPlayer.addEventListener("click", (event) => {
     playerRight = nyan[0]
     playerLeft = nyan[0]
     game.init();
+});
+
+playAgain.addEventListener("click", (event) => {
+    location.reload(true)
 });
