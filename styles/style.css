@@ -12,6 +12,7 @@
 body {
     text-align: center;
     background: url('../images/orange-planet.jpg');
+    background-color: #de3e32;
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'DoodleJump';
