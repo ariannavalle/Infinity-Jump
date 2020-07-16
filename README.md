@@ -22,3 +22,8 @@ The objective is to get as high as possible without falling or crashing into a m
 ## Gameplay
 ![Gameplay img](https://github.com/ariannavalle/Infinity-Jump/blob/master/images/gameplay-00.png)
 ![Gameplay img](https://github.com/ariannavalle/Infinity-Jump/blob/master/images/gameplay-01.png)
+
+#### Disclaimer
+Images used to create this personal project were obtained from [The Spriters Resource](https://www.spriters-resource.com/). 
+
+All backgrounds were created by [upklyak](https://www.freepik.com/upklyak). 
