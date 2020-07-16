@@ -1,4 +1,4 @@
-# Infinity-Jump
+# Infinity Jump
 
 [Live Demo](https://ariannavalle.github.io/Infinity-Jump/)
 
@@ -17,5 +17,8 @@ The objective is to get as high as possible without falling or crashing into a m
 * High score saves in local storage 
 
 ## Character Selection
+![Image of characters](https://github.com/ariannavalle/Infinity-Jump/blob/master/images/character-selection.png)
 
 ## Gameplay
+![Gameplay img](https://github.com/ariannavalle/Infinity-Jump/blob/master/images/gameplay-00.png)
+![Gameplay img](https://github.com/ariannavalle/Infinity-Jump/blob/master/images/gameplay-01.png)
